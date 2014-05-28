@@ -37,53 +37,38 @@ An implemented one is OneBytePrefixKeySalter, where the prefix is hash(RowKey)%b
 
 
 **Put in the HTable**
-
+```java
    HTable ht = new HTable(conf, tablename);
-   
    Put put = new Put(row);
-    
    put. add( family, qualifier, value);
-    
    ht.put(put);
-   
+```
 
 **Put in the SaltedHTable**
-
+```java
    HTable ht = new HTable(conf, tablename);
-   
    Put put = new Put(row);
-   
    put. add( family, qualifier, value);
-   
    KeySalter salter = new OneBytePrefixKeySalter();
-   
    SaltedHTable saltedTable = new SaltedHTable (ht, salter);
-   
    saltedTable.put(put);
-   
+```
 
 **Scan in the Htable**
-
+```java
 HTable ht = new Htable(conf, tablename);
-
 Scan scan = new Scan();
-
 ResultScanner scanner = ht.getScanner(scan);
-
 Result result = scanner.next();
-
+```
 
 **Scan in the SaltedHTable**
-
+```java
 HTable ht = new HTable(conf, tablename);
-
 Scan scan = new Scan();
-
 KeySalter salter = new OneBytePrefixKeySalter();
-
 SaltedHTable saltedTable = new SaltedHTable (ht, salter);
-
 ResultScanner scanner = saltedTable.getScanner(scan);
-
 Result result = scanner.next();
+```
 
