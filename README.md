@@ -1,5 +1,5 @@
 #What is SaltedHTable?
-a slater will prepend some prefix before the row, and the prefix is the hash value of the original row key, so that the row key distribution is more even to avoid hot spotting. 
+In this feature, a slater will prepend some prefix before the row, and the prefix is the hash value of the original row key, so that the row key distribution is more even to avoid hot spotting. SaltedTableInterface is used to operate (get, delete, put, scan) the salted table easily.  
 
 #Problems
 
