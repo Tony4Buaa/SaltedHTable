@@ -3,14 +3,7 @@ a slater will prepend some prefix before the row, and the prefix is the hash val
 
 #Problems
 
-• HBase stores the data into regions.
-
-• For the results with sequential row keys, they are inserted into one single region which could become a hotspot within a specific period. 
-
-–	Impact the write performance.
-
-–	For example, use the time as the row key.
-
+For the results with sequential row keys, they are inserted into one single region which could become a hotspot within a specific period. 
 
 
 #Solution: Salt the Tables
